@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>CoTwitter</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css')}}"/>
+</head>
+<body>
+<div class="container">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="brand" href="#">CoTwitter</a>
+			</div>
+		</div>
+	</div>
+	<h1>Welcome!</h1>
+	<div class="well">
+	<form class="form-horizontal" method=post enctype=multipart/form-data>
+		{{ form.tweet.label }} 
+		{{ form.tweet(rows=4,cols=80) }}
+		<br>
+		<br>
+		{{ form.file }}
+		<br>
+		<br>
+			{{ form.submit (class="btn btn-primary") }}
+		
+	</form>
+	</div>
+	
+	<div>
+		<h2>Your Feed</h2>
+		{% for tweets in display %}
+		<table class="table table-hover">
+			<td width="70px">
+			<strong>{{ tweets.date }}</strong>
+			<br><br>
+			{{ tweets.content }}
+			<br>
+			{% if tweets.image_link %}
+				<img src="{{ tweets.image_link }}" />
+			{% endif %}
+			<br>
+			</td>
+			<br>
+		</table>
+		{% endfor %}
+	</div>
+</div>
+</body>
+</html>
