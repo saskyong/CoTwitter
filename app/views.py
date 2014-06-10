@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for, current_app, Response
 from app import app
 from forms import TweetForm
-from tweetings import Tweet
+#from tweetings import Tweet
 from retrieve import Retrieve
 #from google.appengine.ext import db
 #from google.appengine.api import images
