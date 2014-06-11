@@ -29,16 +29,16 @@
 	
 	<div>
 		<h2>Your Feed</h2>
-		{% for tweets in display %}
+		{% for tweets in retrieve | sort(attribute='date', reverse=True) %}
 		<table class="table table-hover">
 			<td width="70px">
 			<strong>{{ tweets.date }}</strong>
 			<br><br>
 			{{ tweets.content }}
 			<br>
-			{% if tweets.image_link %}
+			<!--{% if tweets.image_link %}
 				<img src="{{ tweets.image_link }}" />
-			{% endif %}
+                {% endif %}--!>
 			<br>
 			</td>
 			<br>
